@@ -1,9 +1,6 @@
-require 'dotenv'
 require './refresh_job'
 
-Dotenv.load
-
-get "/:#{ENV['ENDPOINT']}" do
+get "/#{ENV['ENDPOINT'] || 'test'}" do
 	RefreshJob.new.async.perform()
 	return "OK"
 end

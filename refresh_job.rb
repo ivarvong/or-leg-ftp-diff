@@ -6,7 +6,6 @@ class RefreshJob
 	include SuckerPunch::Job
 
 	def perform
-		puts "Top of RefreshJob's perform"
 		time_start = Time.now
 		ftp = Net::FTP.new('landru.leg.state.or.us')
 		ftp.passive = true
